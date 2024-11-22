@@ -1,0 +1,18 @@
+predicates
+ parent(symbol,symbol)
+ child(symbol,symbol)
+ mother(symbol,symbol)
+ brother(symbol,symbol)
+ sister(symbol,symbol)
+ grandparent(symbol,symbol)
+ male(symbol)
+ female(symbol)
+ clauses
+ parent(a,b).
+ sister(a,c).
+ male(a).
+ female(b).
+ child(X,Y):-parent(Y,X).
+ mother(X,Y):-female(X),parent(X,Y).
+ grandparent(X,Y):-parent(X,Z),parent(Z,Y).
+ brother(X,Y):-male(X),parent(V,X),parent(V,Y).
